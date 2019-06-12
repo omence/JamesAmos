@@ -42,4 +42,5 @@ namespace JamesAmos.Models.Services
             }
             await Task.CompletedTask;
         }
+    }
 }
