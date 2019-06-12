@@ -1,0 +1,61 @@
+﻿@model JamesAmos.Models.ViewModels.RegisterViewModel
+@{
+    Layout = "_Layout";
+}
+<br />
+<br />
+<br />
+<br />
+<div class="container mt-2 " style="width: 45rem;">
+    <div class="card-deck">
+
+        <div class="card card text-center mr-5 mb-1 row">
+
+            <div class="card-body text-center parent col-sm">
+                <section class="pads-xs">
+                    <div class="container">
+                        @Html.ValidationSummary()
+                        <form method="post">
+
+
+                            <div class="field">
+                                <input asp-for="NickName" class="input" type="text" placeholder="Name" />
+                                <span asp-validation-for="NickName" class="is-danger"></span>
+                            </div>
+                            <br />
+                            <div class="field">
+                                <input asp-for="Email" class="input" type="text" placeholder="Email Address" />
+                                <span asp-validation-for="Email" class="is-danger"></span>
+                            </div>
+                            <br />
+                            <div class="field">
+                                <input asp-for="Password" class="input" type="password" placeholder="Pick a strong password" />
+                                <p class="help is-danger">
+                                    <span asp-validation-for="Password"></span>
+                                </p>
+                            </div>
+                            <br />
+                            <div class="field">
+                                <input asp-for="ConfirmPassword" class="input" type="password" placeholder="Confirm password" />
+                                <p class="help is-danger">
+                                    <span asp-validation-for="ConfirmPassword"></span>
+                                </p>
+                            </div>
+
+                            <div class="buttons is-centered">
+                                <div class="field is-grouped">
+                                    <div class="control">
+                                        <button class="btn btn-outline-secondary mt-2" type="submit">Submit</button>
+                                    </div>
+                                    <div class="control">
+                                        <button class="btn btn-outline-secondary mt-2">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</div>
