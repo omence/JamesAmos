@@ -1,0 +1,68 @@
+﻿@{
+    Layout = "_Layout";
+}
+<div class="container-fluid p-0">
+    <div class="site-content contact">
+        <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column">
+                <h1 class="site-title">Amos Faith and Motivation</h1>
+                <h2 class="site-desc">
+                    Using Technology to Bring Nonprofits Across Washington State Together as One Cohesive Team!
+                </h2>
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+                <br />
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section-1">
+    <div class="container text-center">
+        <h1 class="heading-1">Contact Us</h1>
+
+        <h2 style="color:lightgreen;">
+            @Html.ValidationSummary()
+        </h2>
+        @if (TempData["Message"] != null)
+        {
+            <div class="green">
+                <h2 style="color:lightgreen;">@TempData["Message"].ToString()</h2>
+            </div>
+        }
+        <div class="container text-center">
+            <div class="card-deck col">
+
+                <div class="card text-center mb-5" style="width: 18rem;">
+
+                    <div class="card-body text-center">
+                        <form asp-action="Contact" method="post" class="mt-5">
+
+
+                            <input name="email" class="form-control mb-2" placeholder="* Your Email Address" required />
+
+                            <input name="subject" class="form-control mb-2" placeholder="* Message Subject" required />
+                            <textarea type="text" name="message" class="form-control" placeholder="* Write Message Here" required></textarea>
+                            <button type="submit" class="btn btn-outline-secondary mt-3">Send Message</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="bg-dark">
+    <br />
+    <a asp-action="Contact" class="nav-link mt-3"><p style="color:white;">Contact </p></a>
+    <div class="section-5 text-center">
+        <h5 style="color:white;">James Amos &copy;</h5>
+    </div>
+    <br />
+</footer>
