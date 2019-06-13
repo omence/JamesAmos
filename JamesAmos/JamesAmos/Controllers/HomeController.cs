@@ -1,10 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http;
 using System.Threading.Tasks;
 using JamesAmos.Data;
+using JamesAmos.Models;
 using JamesAmos.Models.Interfaces;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 
 namespace JamesAmos.Controllers
 {
@@ -21,9 +24,11 @@ namespace JamesAmos.Controllers
             _emailService = emailService;
 
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var prayer = await DailyPrayer();
+
+            return View(prayer);
         }
 
         public IActionResult Contact()
@@ -54,6 +59,29 @@ namespace JamesAmos.Controllers
         public IActionResult Vlog()
         {
             return RedirectToAction("Index", "Vlog");
+        }
+
+        public async Task<DailyPrayer> DailyPrayer()
+        {
+            using (var client = new HttpClient())
+            {
+                //call made to the api
+                client.BaseAddress = new Uri("http://quotes.rest/bible/ ");
+
+                var response = await client.GetAsync("vod.json");
+
+                response.EnsureSuccessStatusCode();
+                //Reades JSON file received from API
+                string result = await response.Content.ReadAsStringAsync();
+
+                dynamic prayer = JsonConvert.DeserializeObject(result);
+                //Build object
+                DailyPrayer dailyPrayer = new DailyPrayer();
+
+                dailyPrayer.Verse = prayer.contents.verse;
+
+                return dailyPrayer;
+            }
         }
     }
 }

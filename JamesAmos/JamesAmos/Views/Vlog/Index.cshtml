@@ -33,7 +33,7 @@
         <br />
         @if (signInManager.IsSignedIn(User))
         {
-            <a asp-action="Create">Add a Video Mr. Amos</a>
+            <a type="button" asp-action="Create" class="btn mb-5">Add a Video Mr. Amos</a>
         }
 
         @foreach (var v in Model)
@@ -47,6 +47,13 @@
                         <div class="card text-center mb-1" style="width: 18rem;">
 
                             <div class="card-body text-center">
+                                @if (signInManager.IsSignedIn(User))
+                                {
+                                <form asp-action="Delete">
+                                    <input name="ID" value="@v.ID" type="hidden"/>
+                                    <button type="submit" class="btn mb-2">Delete</button>
+                                </form>
+                                }
                                 <h6>@v.DateCreated</h6>
                                 <h5 class="card-header bg-light">@v.Subject</h5>
                                 <div class="iframe-container">
