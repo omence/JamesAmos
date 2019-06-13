@@ -8,5 +8,11 @@ namespace JamesAmos.Models
     public class DailyPrayer
     {
         public string Verse { get; set; }
+
+        public string Book { get; set; }
+
+        public string Chapter { get; set; }
+
+        public string Number { get; set; }
     }
 }

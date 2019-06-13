@@ -65,22 +65,41 @@ namespace JamesAmos.Controllers
         {
             using (var client = new HttpClient())
             {
-                //call made to the api
-                client.BaseAddress = new Uri("http://quotes.rest/bible/ ");
+                try
+                {
+                    //call made to the api
+                    client.BaseAddress = new Uri("http://quotes.rest/bible/ ");
 
-                var response = await client.GetAsync("vod.json");
+                    var response = await client.GetAsync("vod.json");
 
-                response.EnsureSuccessStatusCode();
-                //Reades JSON file received from API
-                string result = await response.Content.ReadAsStringAsync();
+                    response.EnsureSuccessStatusCode();
 
-                dynamic prayer = JsonConvert.DeserializeObject(result);
-                //Build object
-                DailyPrayer dailyPrayer = new DailyPrayer();
 
-                dailyPrayer.Verse = prayer.contents.verse;
+                    //Reades JSON file received from API
+                    string result = await response.Content.ReadAsStringAsync();
 
-                return dailyPrayer;
+                    dynamic prayer = JsonConvert.DeserializeObject(result);
+                    //Build object
+                    DailyPrayer dailyPrayer = new DailyPrayer();
+
+                    dailyPrayer.Verse = prayer.contents.verse;
+                    dailyPrayer.Book = prayer.contents.book;
+                    dailyPrayer.Chapter = prayer.contents.chapter;
+                    dailyPrayer.Number = prayer.contents.number;
+
+                    return dailyPrayer;
+                }
+                catch
+                {
+                    DailyPrayer dailyPrayer2 = new DailyPrayer();
+
+                    dailyPrayer2.Verse = "For I know the plans I have for you,” declares the LORD, “plans to prosper you and not to harm you, plans to give you hope and a future.";
+                    dailyPrayer2.Book = "Jeremiah";
+                    dailyPrayer2.Chapter = "29";
+                    dailyPrayer2.Number = "11";
+
+                    return dailyPrayer2;
+                }
             }
         }
     }
