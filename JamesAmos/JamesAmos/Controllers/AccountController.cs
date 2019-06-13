@@ -30,6 +30,7 @@ namespace JamesAmos.Controllers
         /// Sends home Page to Browser
         /// </summary>
         /// <returns></returns>
+        [Authorize]
         [HttpGet]
         public IActionResult Register()
         {
@@ -70,10 +71,10 @@ namespace JamesAmos.Controllers
                         //creat a number of different claims
                         if (result.Succeeded)
                         {
-                            Claim NickNameClaim = new Claim("Name", $"{user.Name}");
+                            Claim NameClaim = new Claim("Name", $"{user.Name}");
 
                             //list to hold the claims
-                            List<Claim> claims = new List<Claim> { NickNameClaim };
+                            List<Claim> claims = new List<Claim> { NameClaim };
 
                             //returns list of claims to user manager
                             await _userManager.AddClaimsAsync(user, claims);
@@ -137,6 +138,7 @@ namespace JamesAmos.Controllers
         public async Task<IActionResult> Logout()
         {
             await _signInManager.SignOutAsync();
+
             return RedirectToAction("Index", "Home");
         }
     }

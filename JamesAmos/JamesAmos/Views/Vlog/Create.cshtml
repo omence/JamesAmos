@@ -1,0 +1,40 @@
+﻿@model JamesAmos.Models.Vlog
+@{
+    Layout = "_Layout";
+}
+<br />
+<br />
+<br />
+<br />
+<main>
+    <div class="container mt-2 " style="width: 45rem;">
+        <div class="card-deck">
+
+            <div class="card card text-center mr-5 mb-1 row">
+
+                <div class="card-body text-center parent col-sm">
+                    <div id="login">
+
+                        <form asp-action="Create" method="post">
+
+                            <div asp-validation-summary="All"></div>
+
+                            <div class="boxes">
+                                <input asp-for="Subject" placeholder="Subject" class="form-control mb-2" required />
+                                <span asp-validation-for="Subject"></span>
+                            </div>
+                            <br />
+                            <div class="boxes">
+                                <input asp-for="VideoUrl" placeholder="Video URL" class="form-control mb-2" required />
+                                <span asp-validation-for="VideoUrl"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-outline-secondary mt-2">Add Video</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

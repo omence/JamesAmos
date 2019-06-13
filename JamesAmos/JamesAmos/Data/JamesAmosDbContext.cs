@@ -13,6 +13,6 @@ namespace JamesAmos.Data
         {
 
         }
-        public DbSet<Vlog> Petition { get; set; }
+        public DbSet<Vlog> Vlogs { get; set; }
     }
 }

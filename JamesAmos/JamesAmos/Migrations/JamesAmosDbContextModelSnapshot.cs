@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace JamesAmos.Migrations.JamesAmosDb
+namespace JamesAmos.Migrations
 {
     [DbContext(typeof(JamesAmosDbContext))]
     partial class JamesAmosDbContextModelSnapshot : ModelSnapshot
@@ -33,7 +33,7 @@ namespace JamesAmos.Migrations.JamesAmosDb
 
                     b.HasKey("ID");
 
-                    b.ToTable("Petition");
+                    b.ToTable("Vlogs");
                 });
 #pragma warning restore 612, 618
         }

@@ -7,7 +7,6 @@
     <title>@ViewBag.Title</title>
     <link href="~/reset.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    @*<script src="https://kit.fontawesome.com/9be89ce372.js"></script>*@
     <link href="~/StyleSheet.css" rel="stylesheet" />
 </head>
 
@@ -22,8 +21,8 @@
             <div class="collapse navbar-collapse"></div>
             <div class="collapse navbar-collapse" id="nav1">
                 <ul class="navbar-nav mr-auto">
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "nav-item active" : "nav-item")"><a asp-action="Index" class="nav-link">Home</a></li>
-                    <li class="@(ViewContext.RouteData.Values["Action"].ToString() == "Vlog" ? "nav-item active" : "nav-item")"><a asp-action="Vlog" class="nav-link">Vlog</a></li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")"><span class="nav-link">@Html.ActionLink("Home", "Index", "Home")</span></li>
+                    <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Vlog" ? "active" : "")"><span class="nav-link">@Html.ActionLink("Vlog", "Index", "Vlog")</span></li>
                 </ul>
                 <form asp-action="Contact" class="form-inline my-2 my-lg-0">
                     <button class="btn menu-right-btn border" type="submit">
