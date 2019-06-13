@@ -64,5 +64,22 @@ namespace JamesAmos.Controllers
         {
             return RedirectToAction("Contact", "Home");
         }
+
+        [Authorize]
+        public IActionResult Delete(int ID)
+        {
+            var toDelete = _context.Vlogs.FirstOrDefault(d => d.ID == ID);
+
+            if (toDelete != null)
+            {
+                 _context.Remove(toDelete);
+
+                _context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+
+            return RedirectToAction("Index");
+        }
     }
 }
