@@ -2,6 +2,7 @@
 
 .login{
     margin-left:98%;
+    display:inline;
 }
 body {
     padding: 0%;
@@ -222,7 +223,7 @@ th {
 @media screen and (max-width: 872px) {
 
     .section-1 .card {
-        width: 80%;
+        width: 90%
     }
 
     .card-body {
@@ -267,8 +268,10 @@ th {
     }
 
     .section-1 .card {
-        width: 80%;
+        width: 90%;
         align-self: center;
+        margin-right:0;
+        margin-left:0;
     }
 
     .section-3 {
@@ -279,5 +282,8 @@ th {
     section-4 .col-md-5 {
         padding: 0% 15%;
         align-self: center;
+    }
+    footer{
+        width:100%;
     }
 }
