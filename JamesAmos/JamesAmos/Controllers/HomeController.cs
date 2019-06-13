@@ -26,11 +26,6 @@ namespace JamesAmos.Controllers
             return View();
         }
 
-        public IActionResult Vlog()
-        {
-            return View();
-        }
-
         public IActionResult Contact()
         {
             return View();
@@ -49,6 +44,16 @@ namespace JamesAmos.Controllers
             }
 
             return View();
+        }
+
+        public IActionResult Login()
+        {
+            return RedirectToAction("Login", "Account");
+        }
+
+        public IActionResult Vlog()
+        {
+            return RedirectToAction("Index", "Vlog");
         }
     }
 }

@@ -7,10 +7,10 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace JamesAmos.Migrations.JamesAmosDb
+namespace JamesAmos.Migrations
 {
     [DbContext(typeof(JamesAmosDbContext))]
-    [Migration("20190612212613_initial")]
+    [Migration("20190612224354_initial")]
     partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -35,7 +35,7 @@ namespace JamesAmos.Migrations.JamesAmosDb
 
                     b.HasKey("ID");
 
-                    b.ToTable("Petition");
+                    b.ToTable("Vlogs");
                 });
 #pragma warning restore 612, 618
         }

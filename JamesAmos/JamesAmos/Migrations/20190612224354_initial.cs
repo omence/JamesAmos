@@ -2,14 +2,14 @@
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace JamesAmos.Migrations.JamesAmosDb
+namespace JamesAmos.Migrations
 {
     public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Petition",
+                name: "Vlogs",
                 columns: table => new
                 {
                     ID = table.Column<int>(nullable: false)
@@ -20,14 +20,14 @@ namespace JamesAmos.Migrations.JamesAmosDb
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Petition", x => x.ID);
+                    table.PrimaryKey("PK_Vlogs", x => x.ID);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Petition");
+                name: "Vlogs");
         }
     }
 }

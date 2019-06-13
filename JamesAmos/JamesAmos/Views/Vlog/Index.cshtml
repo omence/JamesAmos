@@ -1,0 +1,82 @@
+﻿@model IEnumerable<JamesAmos.Models.Vlog>
+
+@using Microsoft.AspNetCore.Identity
+@using JamesAmos.Models
+
+@inject SignInManager<ApplicationUser> signInManager
+@{
+    Layout = "_Layout";
+}
+<main class="mb-10">
+    <div class="container-fluid p-0">
+        <div class="site-content">
+            <div class="d-flex justify-content-center">
+                <div class="d-flex flex-column">
+                    <h1 class="site-title">Amos Faith and Motivation</h1>
+                    <h2 class="site-desc">
+                        Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff
+                    </h2>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                </div>
+            </div>
+        </div>
+    </div>
+    @if (signInManager.IsSignedIn(User))
+    {
+        <a asp-action="Create">Add a Video Mr. Amos</a>
+    }
+
+    @foreach (var v in Model)
+    {
+        <div class="section-1 text-center">
+
+
+            <div class="container text-center">
+                <div class="card-deck col">
+
+                    <div class="card text-center mb-5" style="width: 18rem;">
+
+                        <div class="card-body text-center">
+                            <h6>@v.DateCreated</h6>
+                            <h5 class="card-header bg-light">@v.Subject</h5>
+                            <div class="iframe-container">
+                                @if (v.VideoUrl != null)
+                                {
+                                    if (v.VideoUrl.Contains("https://www.youtube.com/watch?v="))
+                                    {
+                                        v.VideoUrl = v.VideoUrl.Replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
+
+                                        <iframe width="560" height="315" src="@v.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    }
+
+                                    if (v.VideoUrl.Contains("https://youtu.be/"))
+                                    {
+                                        v.VideoUrl = v.VideoUrl.Replace("https://youtu.be/", "https://www.youtube.com/embed/");
+
+                            <iframe width="560" height="315" src="@v.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    }
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+        </main>
+    <footer class="bg-dark">
+        <br />
+        <a asp-action="Contact" class="nav-link mt-3"><p style="color:white;">Contact </p></a>
+        <div class="section-5 text-center">
+            <h5 style="color:white;">ccmsbuild.org &copy;</h5>
+        </div>
+        <a asp-action="Login" class="login">.</a>
+    </footer>
