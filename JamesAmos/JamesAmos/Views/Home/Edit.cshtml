@@ -1,0 +1,126 @@
+﻿@model JamesAmos.Models.HomePage
+
+@{
+    Layout = "_Layout";
+}
+
+<br />
+<br />
+<br />
+<br />
+<h1>Edit Home Page</h1>
+<div class="container mt-2 " style="width: 45rem;">
+    <div class="card-deck">
+
+        <div class="card bg-light mr-5 mb-1 row">
+
+            <div class="card-body parent col-sm">
+
+                
+                    <form asp-action="Edit2">
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <input type="hidden" asp-for="ID" />
+                        <div class="boxes">
+                            <label asp-for="HeaderImageUrl" class="control-label">Header Image Url</label>
+                            <input asp-for="HeaderImageUrl" class="form-control mb-2" />
+                            <span asp-validation-for="HeaderImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="HeaderTitle" class="control-label">Header Title</label>
+                            <input asp-for="HeaderTitle" class="form-control mb-2" />
+                            <span asp-validation-for="HeaderTitle" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="HeaderSubTitle" class="control-label">Header Sub-Title</label>
+                            <input asp-for="HeaderSubTitle" class="form-control mb-2" />
+                            <span asp-validation-for="HeaderSubTitle" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="WhyTitle1" class="control-label">Why Title</label>
+                            <input asp-for="WhyTitle1" class="form-control mb-2" />
+                            <span asp-validation-for="WhyTitle1" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="WhyText1" class="control-label"> Why Tesxt</label>
+                            <input asp-for="WhyText1" class="form-control mb-2" />
+                            <span asp-validation-for="WhyText1" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CardOneImageUrl" class="control-label">Card One Image URL</label>
+                            <input asp-for="CardOneImageUrl" class="form-control mb-2" />
+                            <span asp-validation-for="CardOneImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CardOneTitle" class="control-label">Card One Title</label>
+                            <input asp-for="CardOneTitle" class="form-control mb-2" />
+                            <span asp-validation-for="CardOneTitle" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CardOneText" class="control-label">Card One Text</label>
+                            <input asp-for="CardOneText" class="form-control mb-2" />
+                            <span asp-validation-for="CardOneText" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CardTwoImageUrl" class="control-label">Card Two Image URL</label>
+                            <input asp-for="CardTwoImageUrl" class="form-control mb-2" />
+                            <span asp-validation-for="CardTwoImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CardThreeImageUrl" class="control-label">Card Three Image URL</label>
+                            <input asp-for="CardThreeImageUrl" class="form-control mb-2" />
+                            <span asp-validation-for="CardThreeImageUrl" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CardThreeTitle" class="control-label">Card Three Title</label>
+                            <input asp-for="CardThreeTitle" class="form-control mb-2" />
+                            <span asp-validation-for="CardThreeTitle" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CardThreeText" class="control-label">Card Three Text</label>
+                            <input asp-for="CardThreeText" class="form-control mb-2" />
+                            <span asp-validation-for="CardThreeText" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CommitmentHeader" class="control-label">Commitment Header</label>
+                            <input asp-for="CommitmentHeader" class="form-control mb-2" />
+                            <span asp-validation-for="CommitmentHeader" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CommitTitle1" class="control-label">Commitment One Title</label>
+                            <input asp-for="CommitTitle1" class="form-control mb-2" />
+                            <span asp-validation-for="CommitTitle1" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CommitText1" class="control-label">Commitment One Text</label>
+                            <input asp-for="CommitText1" class="form-control mb-2" />
+                            <span asp-validation-for="CommitText1" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CommitTitle2" class="control-label">Commitment Two Title</label>
+                            <input asp-for="CommitTitle2" class="form-control mb-2" />
+                            <span asp-validation-for="CommitTitle2" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CommitText2" class="control-label">Commitment Two Text</label>
+                            <input asp-for="CommitText2" class="form-control mb-2" />
+                            <span asp-validation-for="CommitText2" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CommitTitle3" class="control-label">Commitment Three Title</label>
+                            <input asp-for="CommitTitle3" class="form-control mb-2" />
+                            <span asp-validation-for="CommitTitle3" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <label asp-for="CommitText3" class="control-label">Commitment Three Text</label>
+                            <input asp-for="CommitText3" class="form-control mb-2" />
+                            <span asp-validation-for="CommitText3" class="text-danger"></span>
+                        </div>
+                        <div class="boxes">
+                            <input type="submit" value="Save" class="btn btn-primary" />
+                        </div>
+                    </form>
+
+            </div>
+        </div>
+    </div>
+</div>

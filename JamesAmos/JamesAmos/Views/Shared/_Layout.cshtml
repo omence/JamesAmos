@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@using JamesAmos.Models
+
+@inject SignInManager<ApplicationUser> signInManager
+<!DOCTYPE html>
 
 <html>
 <head>
@@ -7,7 +11,7 @@
     <title>@ViewBag.Title</title>
     <link href="~/reset.css" rel="stylesheet" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/css/mdb.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link href="~/StyleSheet.css" rel="stylesheet" />
@@ -26,6 +30,10 @@
                 <ul class="navbar-nav mr-auto">
                     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Home" ? "active" : "")"><span class="nav-link">@Html.ActionLink("Home", "Index", "Home")</span></li>
                     <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Vlog" ? "active" : "")"><span class="nav-link">@Html.ActionLink("Vlog", "Index", "Vlog")</span></li>
+                    @if (signInManager.IsSignedIn(User))
+                    {
+                        <li class="@(ViewContext.RouteData.Values["Controller"].ToString() == "Account" ? "active" : "")"><span class="nav-link">@Html.ActionLink("Log Out", "LogOut", "Account")</span></li>
+                    }
                 </ul>
                 <form asp-action="Contact" class="form-inline my-2 my-lg-0">
                     <button class="btn menu-right-btn border" type="submit">
@@ -88,11 +96,11 @@
             <a>James Amos</a>
         </div>
         <!-- Copyright -->
-        
+
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="~/JavaScript/Global.js"></script>
+    <script src="~/global.js"></script>
     <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.2/js/mdb.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

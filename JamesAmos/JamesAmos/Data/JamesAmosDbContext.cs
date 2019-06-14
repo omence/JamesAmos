@@ -14,5 +14,7 @@ namespace JamesAmos.Data
 
         }
         public DbSet<Vlog> Vlogs { get; set; }
+
+        public DbSet<HomePage> HomePage { get; set; }
     }
 }
