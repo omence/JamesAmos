@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 using JamesAmos.Data;
 using JamesAmos.Models;
 using JamesAmos.Models.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json;
 
 namespace JamesAmos.Controllers
@@ -26,9 +28,87 @@ namespace JamesAmos.Controllers
         }
         public async Task<IActionResult> Index()
         {
-            var prayer = await DailyPrayer();
+            HomePage homePage = await _context.HomePage.FirstOrDefaultAsync(h => h.ID == 1);
 
-            return View(prayer);
+            homePage.DailyVerse = await DailyPrayer();
+
+            return View(homePage);
+
+        }
+
+        [Authorize]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // POST: HomePages/Create
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([Bind("ID,HeaderImageUrl,HeaderTitle,HeaderSubTitle,WhyTitle1,WhyText1,CardOneImageUrl,CardOneTitle,CardOneText,CardTwoImageUrl,CardThreeImageUrl,CardThreeTitle,CardThreeText,CommitmentHeader,CommitTitle1,CommitText1,CommitTitle2,CommitText2,CommitTitle3,CommitText3")] HomePage homePage)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(homePage);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            return View(homePage);
+        }
+
+        [Authorize]
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var homePage = await _context.HomePage.FindAsync(id);
+            if (homePage == null)
+            {
+                return NotFound();
+            }
+            return View(homePage);
+        }
+
+        // POST: HomePages/Edit/5
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit2(int id, [Bind("ID,HeaderImageUrl,HeaderTitle,HeaderSubTitle,WhyTitle1,WhyText1,CardOneImageUrl,CardOneTitle,CardOneText,CardTwoImageUrl,CardThreeImageUrl,CardThreeTitle,CardThreeText,CommitmentHeader,CommitTitle1,CommitText1,CommitTitle2,CommitText2,CommitTitle3,CommitText3")] HomePage homePage)
+        {
+            if (id != homePage.ID)
+            {
+                return NotFound();
+            }
+
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(homePage);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!HomePageExists(homePage.ID))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            return View(homePage);
         }
 
         public IActionResult Contact()
@@ -101,6 +181,11 @@ namespace JamesAmos.Controllers
                     return dailyPrayer2;
                 }
             }
+        }
+
+        private bool HomePageExists(int id)
+        {
+            return _context.HomePage.Any(e => e.ID == id);
         }
     }
 }

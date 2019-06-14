@@ -1,8 +1,8 @@
 ﻿@import url('https://fonts.googleapis.com/css?family=Pacifico|Righteous|Roboto+Condensed|Ubuntu&display=swap');
 
-.login{
-    margin-left:98%;
-    display:inline;
+.login {
+    margin-left: 98%;
+    display: inline;
 }
 body {
     padding: 0%;
@@ -60,7 +60,6 @@ label {
     }
 
 .site-content {
-    background-image: url('https://scontent-sea1-1.xx.fbcdn.net/v/t1.0-9/47390911_562063490920986_2973607404656132096_n.jpg?_nc_cat=108&_nc_oc=AQkZ9wGpnyFcbqD_Zd2kyQRghOeQ6g-5wPxTBLT8lTMn3SA8pmIg13uHJdNp7Clu9U4&_nc_ht=scontent-sea1-1.xx&oh=f9b138d58157e979ca4ebb6c01216d37&oe=5D841103');
     background-attachment: fixed;
     background-size: cover;
 }

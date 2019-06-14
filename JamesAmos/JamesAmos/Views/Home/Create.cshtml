@@ -1,0 +1,115 @@
+﻿@model JamesAmos.Models.HomePage
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>HomePage</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HeaderImageUrl" class="control-label"></label>
+                <input asp-for="HeaderImageUrl" class="form-control" />
+                <span asp-validation-for="HeaderImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeaderTitle" class="control-label"></label>
+                <input asp-for="HeaderTitle" class="form-control" />
+                <span asp-validation-for="HeaderTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeaderSubTitle" class="control-label"></label>
+                <input asp-for="HeaderSubTitle" class="form-control" />
+                <span asp-validation-for="HeaderSubTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WhyTitle1" class="control-label"></label>
+                <input asp-for="WhyTitle1" class="form-control" />
+                <span asp-validation-for="WhyTitle1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="WhyText1" class="control-label"></label>
+                <input asp-for="WhyText1" class="form-control" />
+                <span asp-validation-for="WhyText1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardOneImageUrl" class="control-label"></label>
+                <input asp-for="CardOneImageUrl" class="form-control" />
+                <span asp-validation-for="CardOneImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardOneTitle" class="control-label"></label>
+                <input asp-for="CardOneTitle" class="form-control" />
+                <span asp-validation-for="CardOneTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardOneText" class="control-label"></label>
+                <input asp-for="CardOneText" class="form-control" />
+                <span asp-validation-for="CardOneText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardTwoImageUrl" class="control-label"></label>
+                <input asp-for="CardTwoImageUrl" class="form-control" />
+                <span asp-validation-for="CardTwoImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardThreeImageUrl" class="control-label"></label>
+                <input asp-for="CardThreeImageUrl" class="form-control" />
+                <span asp-validation-for="CardThreeImageUrl" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardThreeTitle" class="control-label"></label>
+                <input asp-for="CardThreeTitle" class="form-control" />
+                <span asp-validation-for="CardThreeTitle" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CardThreeText" class="control-label"></label>
+                <input asp-for="CardThreeText" class="form-control" />
+                <span asp-validation-for="CardThreeText" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommitmentHeader" class="control-label"></label>
+                <input asp-for="CommitmentHeader" class="form-control" />
+                <span asp-validation-for="CommitmentHeader" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommitTitle1" class="control-label"></label>
+                <input asp-for="CommitTitle1" class="form-control" />
+                <span asp-validation-for="CommitTitle1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommitText1" class="control-label"></label>
+                <input asp-for="CommitText1" class="form-control" />
+                <span asp-validation-for="CommitText1" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommitTitle2" class="control-label"></label>
+                <input asp-for="CommitTitle2" class="form-control" />
+                <span asp-validation-for="CommitTitle2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommitText2" class="control-label"></label>
+                <input asp-for="CommitText2" class="form-control" />
+                <span asp-validation-for="CommitText2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommitTitle3" class="control-label"></label>
+                <input asp-for="CommitTitle3" class="form-control" />
+                <span asp-validation-for="CommitTitle3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CommitText3" class="control-label"></label>
+                <input asp-for="CommitText3" class="form-control" />
+                <span asp-validation-for="CommitText3" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>

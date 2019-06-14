@@ -7,6 +7,7 @@ namespace JamesAmos.Models
 {
     public class DailyPrayer
     {
+        public int ID { get; set; }
         public string Verse { get; set; }
 
         public string Book { get; set; }

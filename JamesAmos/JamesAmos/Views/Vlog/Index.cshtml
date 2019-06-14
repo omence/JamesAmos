@@ -7,77 +7,62 @@
 @{
     Layout = "_Layout";
 }
-    <main class="mb-10">
-        <div class="container-fluid p-0">
-            <div class="site-content">
-                <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-column">
-                        <h1 class="site-title">Amos Faith and Motivation</h1>
-                        <h2 class="site-desc">
-                            Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff Stuff
-                        </h2>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    </div>
-                </div>
-            </div>
-        </div>
-        <br />
-        <br />
-        @if (signInManager.IsSignedIn(User))
-        {
-            <a type="button" asp-action="Create" class="btn mb-5">Add a Video Mr. Amos</a>
-        }
+<main class="mb-10">
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    @if (signInManager.IsSignedIn(User))
+    {
+        <a type="button" asp-action="Create" class="btn mb-5">Add a Video Mr. Amos</a>
+    }
 
-        @foreach (var v in Model)
-        {
-            <div class="text-center">
+    @foreach (var v in Model)
+    {
+        <div class="text-center">
 
 
-                <div class="container text-center">
-                    <div class="card-deck col">
+            <div class="container text-center">
+                <div class="card-deck col">
 
-                        <div class="card text-center mb-1" style="width: 18rem;">
+                    <div class="card text-center mb-1" style="width: 18rem;">
 
-                            <div class="card-body text-center">
-                                @if (signInManager.IsSignedIn(User))
-                                {
+                        <div class="card-body text-center">
+                            @if (signInManager.IsSignedIn(User))
+                            {
                                 <form asp-action="Delete">
-                                    <input name="ID" value="@v.ID" type="hidden"/>
+                                    <input name="ID" value="@v.ID" type="hidden" />
                                     <button type="submit" class="btn mb-2">Delete</button>
                                 </form>
-                                }
-                                <h6>@v.DateCreated</h6>
-                                <h5 class="card-header bg-light">@v.Subject</h5>
-                                <div class="iframe-container">
-                                    @if (v.VideoUrl != null)
+                            }
+                            <h6>@v.DateCreated</h6>
+                            <h5 class="card-header bg-light">@v.Subject</h5>
+                            <div class="iframe-container">
+                                @if (v.VideoUrl != null)
+                                {
+                                    if (v.VideoUrl.Contains("https://www.youtube.com/watch?v="))
                                     {
-                                        if (v.VideoUrl.Contains("https://www.youtube.com/watch?v="))
-                                        {
-                                            v.VideoUrl = v.VideoUrl.Replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
+                                        v.VideoUrl = v.VideoUrl.Replace("https://www.youtube.com/watch?v=", "https://www.youtube.com/embed/");
 
-                                            <iframe width="560" height="315" src="@v.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        }
-
-                                        if (v.VideoUrl.Contains("https://youtu.be/"))
-                                        {
-                                            v.VideoUrl = v.VideoUrl.Replace("https://youtu.be/", "https://www.youtube.com/embed/");
-
-                                            <iframe width="560" height="315" src="@v.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                                        }
+                                        <iframe width="560" height="315" src="@v.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                     }
-                                </div>
+
+                                    if (v.VideoUrl.Contains("https://youtu.be/"))
+                                    {
+                                        v.VideoUrl = v.VideoUrl.Replace("https://youtu.be/", "https://www.youtube.com/embed/");
+
+                                        <iframe width="560" height="315" src="@v.VideoUrl" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    }
+                                }
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        }
-    </main>
+        </div>
+    }
+</main>
+<br />
+<br />
