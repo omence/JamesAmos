@@ -26,16 +26,27 @@ namespace JamesAmos.Controllers
             _emailService = emailService;
 
         }
+
+        /// <summary>
+        /// Gets home page from DB, makes API call for daily verse
+        /// </summary>
+        /// <returns>The Home page with content from DB and API results</returns>
         public async Task<IActionResult> Index()
         {
+            //site content from db
             HomePage homePage = await _context.HomePage.FirstOrDefaultAsync(h => h.ID == 1);
 
+            //API call
             homePage.DailyVerse = await DailyPrayer();
 
             return View(homePage);
 
         }
 
+        /// <summary>
+        /// create home page content model view page
+        /// </summary>
+        /// <returns>Page</returns>
         [Authorize]
         public IActionResult Create()
         {
@@ -59,6 +70,11 @@ namespace JamesAmos.Controllers
             return View(homePage);
         }
 
+        /// <summary>
+        /// Admin can edit the content of the home page
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>Home page with new editied content</returns>
         [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
@@ -111,11 +127,22 @@ namespace JamesAmos.Controllers
             return View(homePage);
         }
 
+        /// <summary>
+        /// Sends user to contact page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Contact()
         {
             return View();
         }
 
+        /// <summary>
+        /// emails users message to admin
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Contact(string email, string subject, string message)
         {
@@ -131,16 +158,28 @@ namespace JamesAmos.Controllers
             return View();
         }
 
+        /// <summary>
+        /// redirects to login view
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Login()
         {
             return RedirectToAction("Login", "Account");
         }
 
+        /// <summary>
+        /// redirects to vlog page
+        /// </summary>
+        /// <returns></returns>
         public IActionResult Vlog()
         {
             return RedirectToAction("Index", "Vlog");
         }
 
+        /// <summary>
+        /// Method to make daily verse API call
+        /// </summary>
+        /// <returns>dailyPrayer object</returns>
         public async Task<DailyPrayer> DailyPrayer()
         {
             using (var client = new HttpClient())
@@ -183,6 +222,11 @@ namespace JamesAmos.Controllers
             }
         }
 
+        /// <summary>
+        /// check to make sure homePage object exists
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         private bool HomePageExists(int id)
         {
             return _context.HomePage.Any(e => e.ID == id);
