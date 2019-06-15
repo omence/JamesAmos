@@ -16,6 +16,14 @@ namespace JamesAmos.Models.Services
         {
             _configuration = configuration;
         }
+
+        /// <summary>
+        /// sends users message via email to admin
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="subject"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
         public async Task SendEmail(string email, string subject, string message)
         {
             using (var client = new SmtpClient())
