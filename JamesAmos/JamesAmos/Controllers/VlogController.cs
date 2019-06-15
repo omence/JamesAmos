@@ -12,15 +12,13 @@ namespace JamesAmos.Controllers
 {
     public class VlogController : Controller
     {
-        private readonly IEmail _emailService;
 
         private readonly JamesAmosDbContext _context;
 
-        public VlogController(JamesAmosDbContext context, IEmail emailService)
+        public VlogController(JamesAmosDbContext context)
         {
             _context = context;
 
-            _emailService = emailService;
 
         }
         public async Task<IActionResult> Index()

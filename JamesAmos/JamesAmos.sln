@@ -3,12 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.202
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JamesAmos", "JamesAmos\JamesAmos.csproj", "{F14B91D2-3399-4C98-8D0D-7AA31D64D710}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JamesAmos", "JamesAmos\JamesAmos.csproj", "{F14B91D2-3399-4C98-8D0D-7AA31D64D710}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{18C8DE9F-4AAC-453B-8EBC-6CB05FCB5090}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XUnitTestProject1", "XUnitTestProject1\XUnitTestProject1.csproj", "{00B4FB91-14E7-498F-BB34-00A1C2D02EE6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{F14B91D2-3399-4C98-8D0D-7AA31D64D710}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F14B91D2-3399-4C98-8D0D-7AA31D64D710}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F14B91D2-3399-4C98-8D0D-7AA31D64D710}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00B4FB91-14E7-498F-BB34-00A1C2D02EE6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00B4FB91-14E7-498F-BB34-00A1C2D02EE6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00B4FB91-14E7-498F-BB34-00A1C2D02EE6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00B4FB91-14E7-498F-BB34-00A1C2D02EE6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
