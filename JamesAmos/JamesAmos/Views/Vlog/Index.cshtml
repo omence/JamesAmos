@@ -1,34 +1,21 @@
 ﻿@model IEnumerable<JamesAmos.Models.Vlog>
-
 @using Microsoft.AspNetCore.Identity
 @using JamesAmos.Models
-
 @inject SignInManager<ApplicationUser> signInManager
 @{
     Layout = "_Layout";
 }
-<main class="mb-10">
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
-    <br />
+<main class="mb-10 bg-dark" style="margin-bottom:100px;">
     @if (signInManager.IsSignedIn(User))
     {
         <a type="button" asp-action="Create" class="btn mb-5">Add a Video Mr. Amos</a>
     }
-
     @foreach (var v in Model)
     {
         <div class="text-center">
-
-
             <div class="container text-center">
                 <div class="card-deck col">
-
                     <div class="card text-center mb-1" style="width: 18rem;">
-
                         <div class="card-body text-center">
                             @if (signInManager.IsSignedIn(User))
                             {
@@ -64,5 +51,4 @@
         </div>
     }
 </main>
-<br />
-<br />
+

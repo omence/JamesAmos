@@ -1,64 +1,59 @@
 ﻿@model JamesAmos.Models.HomePage
 @using Microsoft.AspNetCore.Identity
 @using JamesAmos.Models
-
 @inject SignInManager<ApplicationUser> signInManager
-
 @{
     Layout = "_Layout";
 }
 
-    <main class="mb-10">
-        <div class="container-fluid p-0">
-            <div class="site-content" style="background-image: url('@Model.HeaderImageUrl');">
-                <div class="d-flex justify-content-center">
-                    <div class="d-flex flex-column">
-                        <h1 class="site-title">@Model.HeaderTitle</h1>
-                        <h2 class="site-desc">
-                            @Model.HeaderSubTitle
-                        </h2>
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                        <br />
-                    </div>
-                </div>
+    <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel" style="width:100%; height:800px; margin-left:0px; position:fixed; z-index:-100; top: -150px;">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="~/Images/img1.jpg" class="d-block w-100" alt="img1" style="left:0;" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/img3.jpg" class="d-block w-100" alt="img2" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/img6.jpeg" class="d-block w-100" alt="img3" />
+            </div>
+            <div class="carousel-item">
+                <img src="~/Images/img9.jpeg" class="d-block w-100" alt="img5" />
             </div>
         </div>
-        @if (signInManager.IsSignedIn(User))
-        {
-    <form asp-action="Edit">
-        <input name="id" value="@Model.ID" type="hidden" />
-        <button class="btn border">Edit Home Page Mr. James Amos</button>
-    </form>
-        }
-        <div class="section-1">
-            <div class="container text-center">
-                <h1 class="heading-1">@Model.WhyTitle1</h1>
-                <p class="para-1">
-                    @Model.WhyText1
-                </p>
+    </div>
+<div style="z-index:-10">
+    <h1 style="color:white; font-weight:bold">@Model.HeaderTitle</h1>
+    <h2 style="color:white; font-weight:bold">
+        @Model.HeaderSubTitle
+    </h2>
+</div>
+<main class="mb-10 bg-light" style="margin-top:500px;">
 
-                <div class="row justify-content-center text-center">
-
-                    <div class="col-md-4">
-
-                        <div class="card">
-                            <img src="@Model.CardOneImageUrl" class="card-img-top" />
+    @if (signInManager.IsSignedIn(User))
+    {
+        <form asp-action="Edit">
+            <input name="id" value="@Model.ID" type="hidden" />
+            <button class="btn border">Edit Home Page Mr. James Amos</button>
+        </form>
+    }
+    <div class="section-1">
+        <div class="container text-center mt-3">
+            <h1 class="heading-1">@Model.WhyTitle1</h1>
+            <p class="para-1">
+                @Model.WhyText1
+            </p>
+            <div class="container row ml-0" style="justify-content:center;">
+                    <div class="card-deck col">
+                        <div class="card mb-3" style="width: 20rem">
+                            <img src="~/Images/img8.jpeg" class="card-img-top" />
                             <div class="card-body">
                                 <h4 class="card-title">@Model.CardOneTitle</h4>
                                 <p class="card-text">@Model.CardOneText</p>
-
                             </div>
                         </div>
                     </div>
                     <div class="col-md-4">
-
                         <div class="card">
                             <img src="@Model.CardTwoImageUrl" />
                             <div class="card-body">
@@ -70,7 +65,6 @@
                         </div>
                     </div>
                     <div class="col-md-4">
-
                         <div class="card">
                             <img src="@Model.CardThreeImageUrl" class="card-img-top" />
                             <div class="card-body">
@@ -80,53 +74,46 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
         </div>
-
-        <div class="section-3">
-            <div class="container text-center">
-                <h1 class="commit">@Model.CommitmentHeader</h1>
-
-                <div class="row">
-                    <div class="col-md-4">
-                        <div class="d-flex flex-row">
-                            <i class="fas fas-question fa-3x m-2"></i>
-                            <div class="d-flex flex-column">
-                                <h3 class="m-2">@Model.CommitTitle1</h3>
-                                <p class="m-2">
-                                    @Model.CommitText1
-                                </p>
-                            </div>
+    </div>
+    <div class="section-3">
+        <div class="container text-center">
+            <h1 class="commit">@Model.CommitmentHeader</h1>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="d-flex flex-row">
+                        <div class="d-flex flex-column">
+                            <h3 class="m-2">@Model.CommitTitle1</h3>
+                            <p class="m-2">
+                                @Model.CommitText1
+                            </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="d-flex flex-row">
-                            <i class="fas fas-question fa-3x m-2"></i>
-                            <div class="d-flex flex-column">
-                                <h3 class="m-2">@Model.CommitTitle2</h3>
-                                <p class="m-2">
-                                    @Model.CommitText2
-                                </p>
-                            </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex flex-row">
+                        <i class="fas fas-question fa-3x m-2"></i>
+                        <div class="d-flex flex-column">
+                            <h3 class="m-2">@Model.CommitTitle2</h3>
+                            <p class="m-2">
+                                @Model.CommitText2
+                            </p>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="d-flex flex-row">
-                            <i class="fas fas-question fa-3x m-2"></i>
-                            <div class="d-flex flex-column">
-                                <h3 class="m-2">@Model.CommitTitle3</h3>
-                                <p class="m-2">
-                                    @Model.CommitText3
-                                </p>
-                            </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="d-flex flex-row">
+                        <i class="fas fas-question fa-3x m-2"></i>
+                        <div class="d-flex flex-column">
+                            <h3 class="m-2">@Model.CommitTitle3</h3>
+                            <p class="m-2">
+                                @Model.CommitText3
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-    </main>
-<br />
-<br />
+    </div>
+</main>
 
